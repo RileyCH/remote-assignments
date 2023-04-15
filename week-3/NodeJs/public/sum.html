@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        background-color: aliceblue;
+      }
+      h1 {
+        text-align: center;
+        padding: 1.5em;
+      }
+      div {
+        width: 50%;
+        margin: auto;
+      }
+      form,
+      p {
+        margin: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Calculator</h1>
+    <div>
+      <form action="/getData" method="get">
+        <label>Please enter a positive integer:</label>
+        <input type="text" name="Number" />
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </body>
+</html>
