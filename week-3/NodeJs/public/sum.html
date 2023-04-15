@@ -16,23 +16,43 @@
         padding: 1.5em;
       }
       div {
-        width: 50%;
+        width: 300px;
         margin: auto;
       }
       form,
-      p {
-        margin: 10px;
+      span {
+        margin: 20px 0;
       }
     </style>
   </head>
   <body>
-    <h1>Calculator</h1>
+    <h1>Please enter a positive integer:</h1>
     <div>
-      <form action="/getData" method="get">
-        <label>Please enter a positive integer:</label>
-        <input type="text" name="Number" />
+      <form>
+        <label
+          >Number:
+          <input type="text" name="Number" />
+        </label>
         <button type="submit">Submit</button>
       </form>
+      <span class="result">Result:</span>
     </div>
   </body>
+  <script>
+    const form = document.querySelector("form");
+    const resultDiv = document.querySelector("div");
+
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const number = document.querySelector("input").value;
+
+      fetch(`http://localhost:3000/getData?Number=${number}`)
+        .then((res) => res.text())
+        .then((result) => {
+          const resultNum = `<span>${result}</span>`;
+          resultDiv.insertAdjacentHTML("beforeend", resultNum);
+        })
+        .catch((error) => console.error(error));
+    });
+  </script>
 </html>
